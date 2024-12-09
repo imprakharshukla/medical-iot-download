@@ -1,0 +1,1 @@
+pub use common::encryption::error::EncryptionError; 

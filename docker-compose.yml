@@ -1,0 +1,15 @@
+services:
+  dragonfly:
+    image: 'docker.dragonflydb.io/dragonflydb/dragonfly'
+    privileged: true     # Added privileged mode
+    ulimits:
+      memlock: -1
+      nofile: 65535
+    ports:
+      - "6000:6379"     # Changed to use default Redis port 6379 inside container
+    command: ["--maxclients", "10000"]
+    volumes:
+      - dragonflydata:/data
+
+volumes:
+  dragonflydata:    # Added volume definition

@@ -1,0 +1,36 @@
+[package]
+name = "crypto-benchmarks"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Logging and error handling
+env_logger = "0.10"
+log = "0.4"
+thiserror = "1.0"
+rand = "0.8"
+rand_core = "0.6"
+rayon = "1.8"
+
+# AES dependencies
+aes = "0.8"
+cbc = { version = "0.1.2", features = ["std", "alloc"] }
+cipher = { version = "0.4", features = ["std"] }
+
+# RSA dependencies
+rsa = { version = "0.9", features = ["std"] }
+
+# ECC dependencies
+p256 = { version = "0.13", features = ["ecdh", "arithmetic"] }
+elliptic-curve = "0.13"
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "crypto_benchmarks"
+harness = false
+
+[[bench]]
+name = "quick_benchmarks"
+harness = false

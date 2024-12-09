@@ -1,0 +1,45 @@
+[package]
+name = "mec-server"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "mec_server"
+path = "src/lib.rs"
+
+[[bin]]
+name = "mec-server"
+path = "src/main.rs"
+
+[[bin]]
+name = "mec-benchmark"
+path = "src/bin/benchmark.rs"
+
+[dependencies]
+tokio = { version = "1.0", features = ["full"] }
+actix-web = "4.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+log = "0.4"
+env_logger = "0.10"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1.0", features = ["v4", "serde"] }
+redis = { version = "0.22", features = ["tokio-comp", "connection-manager"] }
+parking_lot = "0.12"
+common = { path = "../common" }
+deadpool-redis = "0.11"
+rand = "0.7"
+aes-gcm = "0.10"
+ed25519-dalek = "1.0"
+rand_core = "0.6"
+actix-cors = "0.6"
+mac_address = "1.1"
+core_affinity = "0.8.1"
+rlimit = "0.9.1"
+num_cpus = "1.15"
+futures = "0.3"
+base64 = "0.13"
+
+[dev-dependencies]
+tokio-test = "0.4"
+tokio = { version = "1.0", features = ["full"] }
